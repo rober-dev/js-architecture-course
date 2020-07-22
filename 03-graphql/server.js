@@ -3,6 +3,10 @@ const { ApolloServer } = require('apollo-server-express');
 const _ = require('lodash');
 const express = require('express');
 
+require('dotenv').config();
+
+const { PORT } = process.env;
+
 // Custom libs
 const resolvers = require('./graphql/resolvers');
 const typeDefs = require('./graphql/type-defs');
@@ -23,6 +27,6 @@ const server = new ApolloServer({
 server.applyMiddleware({ app });
 
 // Start server
-app.listen({ port: 4444 }, () => {
-  console.log('Server ready at http://localhost:4444');
+app.listen({ port: PORT }, () => {
+  console.log(`Server ready at http://localhost:${PORT}`);
 });

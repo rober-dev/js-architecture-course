@@ -3,6 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
+const { PORT, MONGODB_URL } = process.env;
+
 // Custom libs
 const Product = require('./models/product');
 
@@ -10,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Mongodb connection
-mongoose.connect('mongodb://localhost/helloworld', {
+mongoose.connect(`${MONGODB_URL}`, {
   useNewUrlParser: true,
 });
 const db = mongoose.connection;
@@ -74,6 +78,6 @@ app.delete('/products/:id', async (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
-  console.log('Express listening on port 3000');
+app.listen(PORT, () => {
+  console.log(`Express listening on port ${PORT}`);
 });
