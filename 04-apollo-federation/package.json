@@ -7,6 +7,16 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "docker:build:accounts": "docker build -f ./packages/accounts/Dockerfile -t 04-apollo-federation-accounts .",
+    "docker:run:accounts": "docker run --name accounts -d -p 5001:5001 04-apollo-federation-accounts",
+    "docker:build:products": "docker build -f ./packages/products/Dockerfile -t 04-apollo-federation-products .",
+    "docker:run:products": "docker run --name products -d -p 5002:5002 04-apollo-federation-products",
+    "docker:build:reviews": "docker build -f ./packages/reviews/Dockerfile -t 04-apollo-federation-reviews .",
+    "docker:run:reviews": "docker run --name reviews -d -p 5003:5003 04-apollo-federation-reviews",
+    "docker:build:api": "docker build -f ./packages/api/Dockerfile -t 04-apollo-federation-api .",
+    "docker:run:api": "docker run --name api -d -p 5000:5000 04-apollo-federation-api"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "lodash": "^4.17.19"

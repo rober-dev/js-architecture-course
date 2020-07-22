@@ -4,7 +4,8 @@ const { buildFederatedSchema } = require('@apollo/federation');
 
 // Get environment variables
 require('dotenv').config();
-const { PORT, API_NAME } = process.env;
+const { PORT } = process.env || 5001;
+const { API_NAME } = process.env || 'API-ACCOUNTS';
 
 const express = require('express');
 

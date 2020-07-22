@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  api:
+    container_name: api
+    image: 04-apollo-federation-api
+    build:
+      context: ./
+      dockerfile: ./packages/api/Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      PORT: 5000
+      API_NAME: API
+      API_ACCOUNTS: http://accounts:5001/graphql
+      API_PRODUCTS: http://products:5002/graphql
+      API_REVIEWS: http://reviews:5003/graphql
+      WAIT_HOSTS: accounts:5001, products:5002, reviews:5003
+    networks:
+      - 04-apollo-federation-network
+
+  accounts:
+    container_name: accounts
+    image: 04-apollo-federation-accounts
+    build:
+      context: ./
+      dockerfile: ./packages/accounts/Dockerfile
+    ports:
+      - 5001:5001
+    environment:
+      PORT: 5001
+      API_NAME: API-ACCOUNTS
+    networks:
+      - 04-apollo-federation-network
+
+  products:
+    container_name: products
+    image: 04-apollo-federation-products
+    build:
+      context: ./
+      dockerfile: ./packages/products/Dockerfile
+    ports:
+      - 5002:5002
+    environment:
+      PORT: 5002
+      API_NAME: API-PRODUCTS
+    networks:
+      - 04-apollo-federation-network
+
+  reviews:
+    container_name: reviews
+    image: 04-apollo-federation-reviews
+    build:
+      context: ./
+      dockerfile: ./packages/reviews/Dockerfile
+    ports:
+      - 5003:5003
+    environment:
+      PORT: 5003
+      API_NAME: API-REVIEWS
+    networks:
+      - 04-apollo-federation-network
+
+networks:
+  04-apollo-federation-network:
+    driver: bridge
