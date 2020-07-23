@@ -1,9 +1,10 @@
 {
-  "name": "@apofed/accounts",
+  "name": "@sample-arch/accounts",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "debug": "node --inspect=0.0.0.0:9229 ./src/index.js",
     "start": "node ./src/index.js"
   },
   "dependencies": {

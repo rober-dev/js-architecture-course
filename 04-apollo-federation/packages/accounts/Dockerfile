@@ -18,6 +18,9 @@ RUN npm install
 # Copy app source
 COPY ./packages/accounts ./packages/accounts
 
+# Remove .env file
+RUN rm ./packages/accounts/.env*
+
 # Lerna bootstrap
 RUN lerna bootstrap
 
@@ -25,4 +28,4 @@ RUN lerna bootstrap
 EXPOSE 5001
 
 # Run app
-CMD /wait && cd packages/accounts && yarn start
+CMD /wait && cd packages/accounts && yarn debug

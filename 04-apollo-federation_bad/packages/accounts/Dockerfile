@@ -16,16 +16,13 @@ COPY lerna.json .
 RUN npm install
 
 # Copy app source
-COPY ./packages/reviews ./packages/reviews
-
-# Remove .env file
-RUN rm ./packages/reviews/.env*
+COPY ./packages/accounts ./packages/accounts
 
 # Lerna bootstrap
 RUN lerna bootstrap
 
 # Port to expose
-EXPOSE 5003
+EXPOSE 5001
 
 # Run app
-CMD /wait && cd packages/reviews && yarn debug
+CMD /wait && cd packages/accounts && yarn debug

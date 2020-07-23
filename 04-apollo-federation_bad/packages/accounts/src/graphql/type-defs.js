@@ -2,15 +2,15 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Product {
-    upc: ID!
+  type User @key(fields: "id") {
+    id: ID!
     name: String!
-    price: Int
-    weight: Int
+    username: String!
+    birthDate: String
   }
 
-  type Query {
-    topProducts(first: Int = 2): [Product]
+  extend type Query {
+    me: User
   }
 `;
 

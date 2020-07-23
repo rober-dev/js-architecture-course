@@ -28,4 +28,4 @@ RUN lerna bootstrap
 EXPOSE 5003
 
 # Run app
-CMD /wait && cd packages/reviews && yarn debug
+CMD /wait && cd packages/reviews && yarn start

@@ -28,4 +28,4 @@ RUN lerna bootstrap
 EXPOSE 5000
 
 # Run app
-CMD /wait && cd packages/api && yarn start
+CMD /wait && cd packages/api && yarn debug
