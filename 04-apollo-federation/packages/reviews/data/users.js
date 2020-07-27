@@ -1,10 +1,10 @@
 module.exports = [
   {
     id: '1',
-    username: '@ada',
+    username: '@ada'
   },
   {
     id: '2',
-    username: '@alant',
-  },
+    username: '@alant'
+  }
 ];

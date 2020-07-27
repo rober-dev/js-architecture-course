@@ -7,7 +7,7 @@ const express = require('express');
 require('dotenv').config();
 
 const { PORT, API_NAME } = process.env || 5000;
-const { API_ACCOUNTS, API_PRODUCTS, API_REVIEWS, API_INVENTORY } = process.env;
+const { API_ACCOUNTS, API_PRODUCTS, API_REVIEWS } = process.env;
 
 // Apollo Gateway setup
 const apolloGateway = new ApolloGateway({
@@ -15,9 +15,9 @@ const apolloGateway = new ApolloGateway({
   serviceList: [
     { name: 'accounts', url: API_ACCOUNTS },
     { name: 'products', url: API_PRODUCTS },
-    { name: 'reviews', url: API_REVIEWS },
+    { name: 'reviews', url: API_REVIEWS }
     // { name: 'inventory', url: API_INVENTORY },
-  ],
+  ]
 });
 
 (async () => {

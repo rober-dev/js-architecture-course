@@ -4,6 +4,7 @@ const { buildFederatedSchema } = require('@apollo/federation');
 
 // Get environment variables
 require('dotenv').config();
+
 const { PORT } = process.env || 5001;
 const { API_NAME } = process.env || 'API-ACCOUNTS';
 
@@ -16,7 +17,7 @@ const typeDefs = require('./graphql/type-defs');
 // Apollo server setup
 const apolloServer = new ApolloServer({
   port: PORT,
-  schema: buildFederatedSchema([{ typeDefs, resolvers }]),
+  schema: buildFederatedSchema([{ typeDefs, resolvers }])
 });
 
 // Add express
