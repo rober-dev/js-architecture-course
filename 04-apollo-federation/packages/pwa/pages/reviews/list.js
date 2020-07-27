@@ -1,6 +1,7 @@
 // Vendor libs
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
+import { useQuery } from '@apollo/react-hooks';
 
 // Custom components
 import ReviewList from '../../components/reviews/ReviewList';

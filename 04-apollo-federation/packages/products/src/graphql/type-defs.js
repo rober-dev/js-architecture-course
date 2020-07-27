@@ -11,6 +11,11 @@ const typeDefs = gql`
 
   extend type Query {
     topProducts(first: Int = 2): [Product]
+    productByUPC(upc: ID): Product
+  }
+
+  extend type Mutation {
+    addNewProduct(upc: ID!, name: String!, price: Int, weight: Int): Product!
   }
 `;
 
