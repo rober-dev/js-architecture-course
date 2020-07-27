@@ -5,6 +5,9 @@ const resolvers = {
   Query: {
     allReviews: () => {
       return reviews;
+    },
+    review: (parent, { id }) => {
+      return reviews.find(r => r.id === id);
     }
   },
   Review: {

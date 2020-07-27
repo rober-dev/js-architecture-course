@@ -5,6 +5,5 @@
   "trailingComma": "none",
   "jsxSingleQuote": true,
   "printWidth": 80,
-  "arrowParens": "avoid",
-  "endOfLine": "auto"
+  "arrowParens": "avoid"
 }

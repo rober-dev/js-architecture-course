@@ -6,7 +6,7 @@ services:
     image: 04-apollo-federation-api
     build:
       context: ./
-      dockerfile: ./packages/api/Dockerfile
+      dockerfile: ./packages/api/Dockerfile.dev
     ports:
       - 5000:5000
       - 15000:9229
@@ -17,6 +17,9 @@ services:
       API_PRODUCTS: http://products:5002/graphql
       API_REVIEWS: http://reviews:5003/graphql
       WAIT_HOSTS: accounts:5001, products:5002, reviews:5003
+    volumes:
+      - ./packages/api:/usr/src/app/packages/api
+      - /usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 
@@ -25,13 +28,16 @@ services:
     image: 04-apollo-federation-accounts
     build:
       context: ./
-      dockerfile: ./packages/accounts/Dockerfile
+      dockerfile: ./packages/accounts/Dockerfile.dev
     ports:
       - 5001:5001
       - 15001:9229
     environment:
       PORT: 5001
       API_NAME: API-ACCOUNTS
+    volumes:
+      - ./packages/accounts:/usr/src/app/packages/accounts
+      - /usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 
@@ -40,13 +46,16 @@ services:
     image: 04-apollo-federation-products
     build:
       context: ./
-      dockerfile: ./packages/products/Dockerfile
+      dockerfile: ./packages/products/Dockerfile.dev
     ports:
       - 5002:5002
       - 15002:9229
     environment:
       PORT: 5002
       API_NAME: API-PRODUCTS
+    volumes:
+      - ./packages/products:/usr/src/app/packages/products
+      - /usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 
@@ -55,13 +64,16 @@ services:
     image: 04-apollo-federation-reviews
     build:
       context: ./
-      dockerfile: ./packages/reviews/Dockerfile
+      dockerfile: ./packages/reviews/Dockerfile.dev
     ports:
       - 5003:5003
       - 15003:9229
     environment:
       PORT: 5003
       API_NAME: API-REVIEWS
+    volumes:
+      - ./packages/reviews:/usr/src/app/packages/reviews
+      - /usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 

@@ -15,6 +15,7 @@ const typeDefs = gql`
 
   extend type Query {
     allReviews: [Review]
+    review(id: ID!): Review
   }
 `;
 

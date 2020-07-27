@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "debug": "node --inspect=0.0.0.0:9229 ./src/index.js",
+    "dev": "nodemon --watch ./src --watch ./data ./src/index.js",
+    "dev:debug": "nodemon --watch ./src --watch ./data --inspect=0.0.0.0:9229 ./src/index.js",
     "start": "node ./src/index.js"
   },
   "dependencies": {
