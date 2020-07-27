@@ -9,7 +9,7 @@ const typeDefs = gql`
     weight: Int
   }
 
-  type Query {
+  extend type Query {
     topProducts(first: Int = 2): [Product]
   }
 `;

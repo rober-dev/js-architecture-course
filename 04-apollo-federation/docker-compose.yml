@@ -22,6 +22,7 @@ services:
       - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
+    restart: unless-stopped
 
   accounts:
     container_name: accounts
@@ -40,6 +41,7 @@ services:
       - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
+    restart: unless-stopped
 
   products:
     container_name: products
@@ -58,6 +60,7 @@ services:
       - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
+    restart: unless-stopped
 
   reviews:
     container_name: reviews
@@ -76,6 +79,7 @@ services:
       - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
+    restart: unless-stopped
 
 networks:
   04-apollo-federation-network:
