@@ -19,7 +19,7 @@ services:
       WAIT_HOSTS: accounts:5001, products:5002, reviews:5003
     volumes:
       - ./packages/api:/usr/src/app/packages/api
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 
@@ -37,7 +37,7 @@ services:
       API_NAME: API-ACCOUNTS
     volumes:
       - ./packages/accounts:/usr/src/app/packages/accounts
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 
@@ -55,7 +55,7 @@ services:
       API_NAME: API-PRODUCTS
     volumes:
       - ./packages/products:/usr/src/app/packages/products
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 
@@ -73,7 +73,7 @@ services:
       API_NAME: API-REVIEWS
     volumes:
       - ./packages/reviews:/usr/src/app/packages/reviews
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
     networks:
       - 04-apollo-federation-network
 

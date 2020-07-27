@@ -9,26 +9,6 @@ RUN chmod +x /wait
 
 RUN npm i nodemon -g
 
-# Install nodemon
-RUN npm i nodemon -g --loglevel notice
-
-# Install lerna
-RUN npm i lerna -g
-
-# Install lerna dependencies
-COPY package*.json ./
-COPY lerna.json .
-RUN npm install
-
-# Copy app source
-COPY ./packages/products ./packages/products
-
-# Remove .env file
-RUN rm ./packages/products/.env*
-
-# Lerna bootstrap
-RUN lerna bootstrap
-
 # Port to expose
 EXPOSE 5002
 
