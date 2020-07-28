@@ -31,6 +31,13 @@ const resolvers = {
         return p;
       }
       throw new ApolloError('El producto ya existe');
+    },
+    updateProduct: (parent, { upc, name, price, weight }) => {
+      const product = products.find(p => p.upc === upc);
+      product.name = name;
+      product.price = price;
+      product.weight = weight;
+      return product;
     }
   }
 };

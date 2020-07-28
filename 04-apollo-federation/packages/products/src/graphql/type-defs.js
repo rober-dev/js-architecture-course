@@ -16,6 +16,7 @@ const typeDefs = gql`
 
   extend type Mutation {
     addNewProduct(upc: ID!, name: String!, price: Int, weight: Int): Product!
+    updateProduct(upc: ID!, name: String!, price: Int, weight: Int): Product!
   }
 `;
 

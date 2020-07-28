@@ -2,9 +2,13 @@
 import React from 'react';
 import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/react-hooks';
+import { getDataFromTree } from '@apollo/react-ssr';
 
 // Custom components
 import ReviewList from '../../components/reviews/ReviewList';
+
+// Custom libs
+import withApollo from '../../lib/withApollo';
 
 // GrapqhQL queries and mutations
 const ALL_REVIEWS = gql`
@@ -34,4 +38,4 @@ const HomePage = () => {
 };
 
 // Exportation
-export default HomePage;
+export default withApollo(HomePage, { getDataFromTree });
