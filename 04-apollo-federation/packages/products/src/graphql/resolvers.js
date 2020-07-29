@@ -2,10 +2,13 @@
 const { ApolloError } = require('apollo-server-express');
 
 // Custom libs
-const products = require('../../data/products');
+let products = require('../../data/products');
 
 const resolvers = {
   Query: {
+    allProducts: () => {
+      return products;
+    },
     topProducts: (parent, { first }) => {
       return products.slice(0, first);
     },
@@ -38,6 +41,15 @@ const resolvers = {
       product.price = price;
       product.weight = weight;
       return product;
+    },
+    deleteProduct: (parent, { upc }) => {
+      const product = products.find(p => p.upc === upc);
+      if (!product) {
+        throw new ApolloError(`El producto ${upc} no existe`);
+      }
+
+      products = products.filter(p => p.upc !== upc);
+      return true;
     }
   }
 };
