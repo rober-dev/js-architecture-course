@@ -12,6 +12,8 @@
     "@apollo/client": "^3.0.2",
     "@apollo/react-hooks": "^4.0.0",
     "@apollo/react-ssr": "^4.0.0",
+    "@material-ui/core": "^4.11.0",
+    "clsx": "^1.1.1",
     "formik": "^2.1.5",
     "graphql": "^15.3.0",
     "next": "^9.4.4",
